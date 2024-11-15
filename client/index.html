@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Add Select2 for searchable dropdown -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <!-- Updated Logo Text -->
+            <div class="logo">Build Your House</div>
+            <!-- Updated Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#estimateForm">Predict Price</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="hero">
+        <div class="carousel">
+            <!-- Carousel Slides -->
+            <div class="carousel-slide active">
+                <img src="/img/hero-image.jpg" alt="Slide 1">
+                <div class="carousel-content">
+                    <h1>Find Your Dream Home</h1>
+                    <p>Discover the best real estate properties with us.</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="/img/hero-image.2.jpg" alt="Slide 2">
+                <div class="carousel-content">
+                    <h1>Luxury Properties for You</h1>
+                    <p>Experience the best of modern living.</p>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <img src="/img/hero-image3.jpg" alt="Slide 3">
+                <div class="carousel-content">
+                    <h1>Best Deals in Town</h1>
+                    <p>Unbeatable prices for high-quality homes.</p>
+                </div>
+            </div>
+
+            <!-- Carousel Navigation Buttons -->
+            <div class="carousel-nav">
+                <button class="carousel-btn prev">◀</button>
+                <button class="carousel-btn next">▶</button>
+            </div>
+
+            <!-- Carousel Indicator Dots -->
+            <div class="carousel-indicators">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="estimate-form">
+        <h1>Estimate Your Dream House</h1>
+        <form id="estimateForm">
+            <!-- Searchable Location Dropdown -->
+            <div class="form-group">
+                <label for="uiLocations">Location</label>
+                <select class="location-select" name="location" id="uiLocations">
+                    <option value="" disabled selected>Choose a Location</option>
+                </select>
+            </div>
+
+            <!-- Total Area in SQFT -->
+            <div class="form-group">
+                <label for="uiSqft">Total Area (in SQFT)</label>
+                <input type="number" id="uiSqft" placeholder="Enter total SQFT" required>
+            </div>
+
+            <!-- Simplified Bath Dropdown -->
+            <div class="form-group">
+                <label for="uiBathrooms">Number of Bathrooms</label>
+                <select id="uiBathrooms" name="uiBathrooms" required>
+                    <option value="" disabled selected>Select Bathrooms</option>
+                    <option value="1">1 Bath</option>
+                    <option value="2">2 Baths</option>
+                    <option value="3">3 Baths</option>
+                    <option value="4">4 Baths</option>
+                    <option value="5">5 Baths</option>
+                    <option value="6">6 Baths</option>
+                    <option value="7">7 Baths</option>
+                    <option value="8">8 Baths</option>
+                </select>
+            </div>
+
+            <!-- Simplified Beds Dropdown -->
+            <div class="form-group">
+                <label for="uiBeds">Number of Bedrooms</label>
+                <select id="uiBeds" name="uiBeds" required>
+                    <option value="" disabled selected>Select Bedrooms</option>
+                    <option value="1">1 Bed</option>
+                    <option value="2">2 Beds</option>
+                    <option value="3">3 Beds</option>
+                    <option value="4">4 Beds</option>
+                    <option value="5">5 Beds</option>
+                    <option value="6">6 Beds</option>
+                    <option value="7">7 Beds</option>
+                    <option value="8">8 Beds</option>
+                </select>
+            </div>
+
+            <!-- Warning Message -->
+            <div id="warningMessage" class="warning-message" style="display: none;">
+                Please check your inputs: <br>
+                - Baths and Beds should be between 1 and 8.<br>
+                - Total Area (SQFT) should be between 300 and 8200.<br>
+                - Number of bathrooms cannot be less than number of bedrooms.
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="estimate-btn">Estimate Price</button>
+        </form>
+
+        <!-- Result Display -->
+        <div id="uiEstimatedPrice" class="result-container">
+            <h2>Estimated Price:</h2>
+            <div class="result-content">
+                <p>Your estimated price will be displayed here.</p>
+            </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
